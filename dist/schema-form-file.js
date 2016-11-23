@@ -88,6 +88,8 @@ angular
          require:  'ngModel',
          link:     function (scope, element, attrs, ngModel) {
             scope.url = scope.form && scope.form.endpoint;
+            scope.onError = scope.form && scope.form.onError;
+            scope.onProgress = scope.form && scope.form.onProgress;
             scope.isSinglefileUpload = scope.form && scope.form.schema && scope.form.schema.format === 'singlefile';
 
             scope.selectFile  = function (file) {

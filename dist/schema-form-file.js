@@ -121,6 +121,7 @@ angular
                      $timeout(function () {
                         file.result = response.data;
                      });
+                     scope.onSuccess && scope.onSuccess(response);
                      ngModel.$setViewValue(response.data);
                      ngModel.$commitViewValue();
                   }, function (response) {

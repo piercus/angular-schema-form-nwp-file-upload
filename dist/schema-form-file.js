@@ -90,6 +90,7 @@ angular
             scope.url = scope.form && scope.form.endpoint;
             scope.onError = scope.form && scope.form.onError;
             scope.onProgress = scope.form && scope.form.onProgress;
+            scope.onSuccess = scope.form && scope.form.onSuccess;            
             scope.isSinglefileUpload = scope.form && scope.form.schema && scope.form.schema.format === 'singlefile';
 
             scope.selectFile  = function (file) {

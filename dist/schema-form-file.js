@@ -122,13 +122,23 @@ angular
                      ngModel.$commitViewValue();
                   }, function (response) {
                      if (response.status > 0) {
-                        scope.errorMsg = response.status + ': ' + response.data;
+                        if(scope.onError){
+                          scope.onError(response, scope);
+                        } else {
+                          scope.errorMsg = response.status + ': ' + response.data;
+                        }
+  
                      }
                   });
 
                   file.upload.progress(function (evt) {
-                     file.progress = Math.min(100, parseInt(100.0 *
-                        evt.loaded / evt.total));
+                     if(scope.onProgress){
+                        scope.onProgress(evt, scope);
+                     } else {
+                       file.progress = Math.min(100, parseInt(100.0 *
+                         evt.loaded / evt.total));
+                     }
+
                   });
                }
             }
